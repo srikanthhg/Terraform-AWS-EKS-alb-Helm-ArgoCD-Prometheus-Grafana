@@ -21,6 +21,16 @@ resource "helm_release" "argocd" {
   }
 
   set {
+    name  = "server.service.annotations"
+    value = <<-EOT
+      {
+        "service.beta.kubernetes.io/aws-load-balancer-type": "nlb",
+        "service.beta.kubernetes.io/aws-load-balancer-internal": "false"
+      }
+    EOT
+  }
+
+  set {
     name  = "server.ingress.enabled"
     value = "false"
   }
