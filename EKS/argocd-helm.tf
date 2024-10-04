@@ -21,13 +21,13 @@ resource "helm_release" "argocd" {
   }
 
   set {
-    name  = "server.service.annotations"
-    value = <<-EOT
-      {
-        "service.beta.kubernetes.io/aws-load-balancer-type": "nlb",
-        "service.beta.kubernetes.io/aws-load-balancer-internal": "false"
-      }
-    EOT
+    name  = "server.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-type"
+    value = "nlb"
+  }
+
+  set {
+    name  = "server.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-internal"
+    value = "false"
   }
 
   set {
