@@ -53,7 +53,8 @@ resource "aws_iam_policy" "AWSLoadBalancerControllerIAMPolicy" {
           "elasticloadbalancing:DescribeTargetGroupAttributes",
           "elasticloadbalancing:DescribeTargetHealth",
           "elasticloadbalancing:DescribeTags",
-          "elasticloadbalancing:DescribeTrustStores"
+          "elasticloadbalancing:DescribeTrustStores",
+          "elasticloadbalancing:DescribeListenerAttributes" # Added
         ]
       },
 
