@@ -1,0 +1,19 @@
+output "availability_zones" {
+  value = data.aws_availability_zones.available.names
+}
+
+output "endpoint" {
+  value = aws_eks_cluster.eks[0].endpoint
+}
+
+output "eks-certificate" {
+  value = aws_eks_cluster.eks[0].identity[0].oidc[0].issuer
+}
+
+output "kubeconfig-certificate-authority-data" {
+  value = aws_eks_cluster.eks[0].certificate_authority[0].data
+}
+
+output "provider" {
+  value = aws_iam_openid_connect_provider.eks-oidc.arn
+}
