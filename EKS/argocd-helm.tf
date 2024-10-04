@@ -14,13 +14,15 @@ resource "helm_release" "argocd" {
     name  = "server.service.type"
     value = "LoadBalancer" #LoadBalancer #ClusterIP
   }
+
   # set {
   #   name =  "server.serviceAccount.name"
   #   value = "argocd-server"
   # }
+
   set {
     name  = "server.ingress.enabled"
-    value = "fasle"
+    value = "false"
   }
 
   depends_on = [helm_release.alb_ingress_controller]
