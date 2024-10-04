@@ -14,14 +14,14 @@ variable "region" {
   type = string
 }
 
-variable "vpc_name"{
+variable "vpc_name" {
   type = string
 }
 
 variable "cluster_name" {
-  type    = string 
+  type = string
 }
 
-variable "eks-cluster-sg"{
+variable "eks-cluster-sg" {
   type = string
 }

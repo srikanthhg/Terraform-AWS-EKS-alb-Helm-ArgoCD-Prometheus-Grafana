@@ -4,8 +4,8 @@ resource "aws_instance" "web" {
   subnet_id                   = aws_subnet.public[1].id
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.allow_tls.id]
-  key_name = "hipstershop"
-  user_data = file("bootstrap.sh")
+  key_name                    = "hipstershop"
+  user_data                   = file("bootstrap.sh")
 
   ebs_block_device {
     device_name = "/dev/sda1"

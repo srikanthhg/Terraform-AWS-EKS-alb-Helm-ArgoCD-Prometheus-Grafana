@@ -37,8 +37,8 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
   availability_zone       = element(data.aws_availability_zones.available.names, count.index)
   tags = {
-    Name                     = "public-${count.index + 1}"
-    "kubernetes.io/role/elb" = "1" # true or 1
+    Name                                        = "public-${count.index + 1}"
+    "kubernetes.io/role/elb"                    = "1"     # true or 1
     "kubernetes.io/cluster/${var.cluster_name}" = "owned" # owned or shared
   }
 }
@@ -50,8 +50,8 @@ resource "aws_subnet" "private" {
   availability_zone = element(data.aws_availability_zones.available.names, count.index)
 
   tags = {
-    Name = "private-${count.index + 1}"
-    "kubernetes.io/role/internal-elb" = "1"
+    Name                                        = "private-${count.index + 1}"
+    "kubernetes.io/role/internal-elb"           = "1"
     "kubernetes.io/cluster/${var.cluster_name}" = "owned"
   }
 }

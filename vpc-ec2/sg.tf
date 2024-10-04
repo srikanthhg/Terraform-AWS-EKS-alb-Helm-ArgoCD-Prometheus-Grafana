@@ -24,7 +24,7 @@ resource "aws_security_group" "allow_tls" {
 }
 
 resource "aws_security_group" "cluster_sg" {
-  name        =  "eks-cluster-sg"
+  name        = "eks-cluster-sg"
   description = "Node groups to cluster API"
   vpc_id      = aws_vpc.main.id
 
