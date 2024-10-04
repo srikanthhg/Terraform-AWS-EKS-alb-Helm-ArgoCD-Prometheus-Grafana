@@ -1,6 +1,6 @@
-output "availability_zones" {
-  value = data.aws_availability_zones.available.names
-}
+# output "availability_zones" {
+#   value = data.aws_availability_zones.available.names
+# }
 
 output "endpoint" {
   value = aws_eks_cluster.eks[0].endpoint
