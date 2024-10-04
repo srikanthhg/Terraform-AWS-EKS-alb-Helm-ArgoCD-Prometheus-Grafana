@@ -4,7 +4,7 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = true
 
   tags = {
-    Name = "myvpc"
+    Name = var.vpc_name
   }
 }
 
@@ -39,6 +39,7 @@ resource "aws_subnet" "public" {
   tags = {
     Name                     = "public-${count.index + 1}"
     "kubernetes.io/role/elb" = "1" # true or 1
+    "kubernetes.io/cluster/${var.cluster_name}" = "owned" # owned or shared
   }
 }
 
@@ -50,6 +51,8 @@ resource "aws_subnet" "private" {
 
   tags = {
     Name = "private-${count.index + 1}"
+    "kubernetes.io/role/internal-elb" = "1"
+    "kubernetes.io/cluster/${var.cluster_name}" = "owned"
   }
 }
 

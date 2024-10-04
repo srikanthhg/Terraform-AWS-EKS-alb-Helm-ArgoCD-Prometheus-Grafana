@@ -13,3 +13,15 @@ variable "private_subnets_cidr" {
 variable "region" {
   type = string
 }
+
+variable "vpc_name"{
+  type = string
+}
+
+variable "cluster_name" {
+  type    = string 
+}
+
+variable "eks-cluster-sg"{
+  type = string
+}
