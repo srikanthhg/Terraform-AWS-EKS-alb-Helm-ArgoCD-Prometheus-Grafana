@@ -1,17 +1,13 @@
 variable "vpc_cidr" {
-  type    = string
+  type = string
 }
 
 variable "public_subnets_cidr" {
-  type    = list(string)
+  type = list(string)
 }
 
 variable "private_subnets_cidr" {
-  type    = list(string)
-}
-
-variable "cluster_name" {
-  type    = string 
+  type = list(string)
 }
 
 variable "region" {

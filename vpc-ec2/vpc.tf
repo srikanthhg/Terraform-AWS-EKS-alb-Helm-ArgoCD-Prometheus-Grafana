@@ -37,8 +37,8 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
   availability_zone       = element(data.aws_availability_zones.available.names, count.index)
   tags = {
-    Name = "public-${count.index + 1}"
-    "kubernetes.io/role/elb" = "1"  # true or 1
+    Name                     = "public-${count.index + 1}"
+    "kubernetes.io/role/elb" = "1" # true or 1
   }
 }
 
