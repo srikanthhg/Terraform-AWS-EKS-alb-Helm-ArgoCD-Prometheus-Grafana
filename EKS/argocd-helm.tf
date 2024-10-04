@@ -15,10 +15,10 @@ resource "helm_release" "argocd" {
     value = "LoadBalancer" #LoadBalancer #ClusterIP
   }
 
-  # set {
-  #   name =  "server.serviceAccount.name"
-  #   value = "argocd-server"
-  # }
+  set {
+    name =  "server.serviceAccount.name"
+    value = "argocd-server"
+  }
 
   set {
     name  = "server.ingress.enabled"
