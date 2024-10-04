@@ -25,7 +25,7 @@ data "tls_certificate" "eks-certificate" {
   url = aws_eks_cluster.eks[0].identity[0].oidc[0].issuer
 }
 
-data "aws_eks_cluster" "eks" {
+data "aws_eks_cluster" "eks-cluster" {
   name = var.cluster_name
 }
 
