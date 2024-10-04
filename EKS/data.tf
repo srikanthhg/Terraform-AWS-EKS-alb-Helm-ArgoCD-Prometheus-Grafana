@@ -27,6 +27,8 @@ data "tls_certificate" "eks-certificate" {
 
 data "aws_eks_cluster" "eks-cluster" {
   name = var.cluster_name
+
+  depends_on = [ aws_eks_cluster.eks ]
 }
 
 data "aws_eks_cluster_auth" "eks-cluster-auth" {
