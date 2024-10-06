@@ -16,7 +16,7 @@ resource "helm_release" "alb_ingress_controller" {
 
   set {
     name  = "serviceAccount.create"
-    value = "true"
+    value = "false"
   }
 
   set {
