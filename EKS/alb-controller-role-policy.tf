@@ -1,5 +1,5 @@
 resource "aws_iam_role" "alb_controller_role" {
-  name = "alb-controller-role"
+  name = "alb-controller-role" #Assign IAM role to service account
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [

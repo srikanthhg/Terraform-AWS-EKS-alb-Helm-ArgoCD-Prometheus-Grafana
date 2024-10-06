@@ -46,6 +46,8 @@ resource "aws_eks_addon" "example" {
   addon_name    = each.key
   addon_version = each.value
 
+  depends_on = [ aws_eks_node_group.spot ]
+
 }
 
 # worker nodes
