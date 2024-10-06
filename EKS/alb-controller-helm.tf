@@ -5,9 +5,9 @@ resource "helm_release" "alb_ingress_controller" {
   chart           = "aws-load-balancer-controller"
   version         = "1.4.1"
   namespace       = "kube-system"
-  # cleanup_on_fail = true
-  # recreate_pods   = true
-  # replace         = true
+  cleanup_on_fail = true
+  recreate_pods   = true
+  replace         = true
 
   set {
     name  = "clusterName"
