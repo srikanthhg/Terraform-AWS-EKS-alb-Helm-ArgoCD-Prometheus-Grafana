@@ -3,6 +3,10 @@ aLKsNypV53OJunlx
 timeout = 2000
 
 
+kubectl delete <resource_type> <resource_name> -n <namespace> --grace-period=0 --force
+
+kubectl get crd | grep "monitoring.coreos.com" | awk '{print $1}' | xargs kubectl delete
+
 
  "kubernetes.io/cluster/my-cluster"      = "shared"
     "kubernetes.io/role/elb"                 = "1"

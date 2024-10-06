@@ -32,5 +32,5 @@ data "aws_eks_cluster" "eks-cluster" {
 }
 
 data "aws_eks_cluster_auth" "eks-cluster-auth" {
-  name = var.cluster_name
+  name = data.aws_eks_cluster.eks-cluster.name
 }

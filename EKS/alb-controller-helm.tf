@@ -3,10 +3,11 @@ resource "helm_release" "alb_ingress_controller" {
   name            = "aws-load-balancer-controller"
   repository      = "https://aws.github.io/eks-charts"
   chart           = "aws-load-balancer-controller"
+  version         = "1.4.1"
   namespace       = "kube-system"
-  cleanup_on_fail = true
-  recreate_pods   = true
-  replace         = true
+  # cleanup_on_fail = true
+  # recreate_pods   = true
+  # replace         = true
 
   set {
     name  = "clusterName"
@@ -15,7 +16,7 @@ resource "helm_release" "alb_ingress_controller" {
 
   set {
     name  = "serviceAccount.create"
-    value = "false"
+    value = "true"
   }
 
   set {
@@ -23,5 +24,6 @@ resource "helm_release" "alb_ingress_controller" {
     value = "aws-load-balancer-controller"
   }
 
-  depends_on = [kubernetes_service_account.alb_controller_sa]
+  depends_on = [ kubernetes_service_account.alb_controller_sa ]
+
 }
