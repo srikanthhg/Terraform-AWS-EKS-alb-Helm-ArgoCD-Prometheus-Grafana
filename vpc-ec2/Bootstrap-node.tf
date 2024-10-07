@@ -4,6 +4,7 @@ resource "aws_instance" "web" {
   subnet_id                   = aws_subnet.public[1].id
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.allow_tls.id]
+  iam_instance_profile        = "myrole08022024"
   key_name                    = "hipstershop"
   user_data                   = file("bootstrap.sh")
 
